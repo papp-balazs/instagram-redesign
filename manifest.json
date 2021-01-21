@@ -1,0 +1,13 @@
+{
+	"short_name": "Instagram",
+	"name": "Instagram Redesign Concept",
+	"description": "Instagram is a simple way to capture and share the world's moments.",
+	"theme_color": "#f0f0f0",
+	"icons": [
+		{
+			"src": "/images/ico/favicon-192.png",
+			"sizes": "192x192",
+			"type": "image/png"
+		}
+	]
+}

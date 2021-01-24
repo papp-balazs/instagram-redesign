@@ -50,6 +50,7 @@ nav .container {
 	flex-direction: column;
 	justify-content: center;
 	width: 30px;
+	cursor: pointer;
 	z-index: 3;
 }
 

@@ -1,0 +1,251 @@
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	box-sizing: border-box;
+}
+
+:root {
+	--primary-background-color: rgb(0, 0, 0);
+	--secondary-background-color: rgb(25, 25, 25);
+	--primary-font-color: rgb(240, 240, 240);
+	--secondary-font-color: rgb(180, 180, 180);
+}
+
+body {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 400;
+	font-size: 15px;
+	color: var(--primary-font-color);
+	background-color: var(--primary-background-color);
+}
+
+a {
+	color: var(--primary-font-color);
+	text-decoration: none;
+}
+
+/*
+ *
+ * NAVBAR
+ *
+ */
+nav .container {
+	position: fixed;
+	width: 350px;
+	height: 100vh;
+	height: calc(var(--vh, 1vh) * 100);
+	padding: 10px 25px 25px;
+	background-color: var(--secondary-background-color);
+	overflow-y: auto;
+	z-index: 2;
+}
+
+.navbar--mobile-button {
+	position: fixed;
+	top: 25px;
+	left: 25px;
+	display: none;
+	flex-direction: column;
+	justify-content: center;
+	width: 30px;
+	z-index: 3;
+}
+
+.navbar--mobile-button span {
+	display: block;
+	width: 100%;
+	height: 3px;
+	background-color: var(--primary-font-color);
+}
+
+.navbar--mobile-button span + span {
+	margin-top: 5px;
+}
+
+.navbar--logo {
+	display: flex;
+}
+
+.navbar--logo #logo__icon {
+	width: 30px;
+}
+
+.navbar--logo #logo__text {
+	height: 50px;
+	margin: 7px 0 0 12px;
+	fill: var(--primary-font-color);
+}
+
+.navbar--profile {
+	margin: 25px 0;
+	text-align: center;
+}
+
+.navbar--profile .profile--about {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.navbar--profile .profile--about .profile-picture {
+	margin-bottom: 25px;
+	padding: 3px;
+	background: linear-gradient(45deg, #FFC107, #F44336, #9C27B0);
+	border-radius: 69px;
+	cursor: pointer;
+}
+
+.navbar--profile .profile--about .profile-picture span {
+	display: block;
+	width: 130px;
+	height: 130px;
+	background-image: url('/images/profile-pic.jpg');
+	background-position: center 10%;
+	background-size: cover;
+	border: 5px solid var(--secondary-background-color);
+	border-radius: 65px;
+}
+
+.navbar--profile .profile--about h4 {
+	font-size: 20px;
+	margin-bottom: 3px;
+}
+
+.navbar--profile .profile--about h5,
+.navbar--profile .profile--numbers h5 {
+	font-size: 13px;
+	color: var(--secondary-font-color);
+}
+
+.navbar--profile .profile--about h4,
+.navbar--profile .profile--about h5 {
+	cursor: pointer;
+}
+
+.navbar--profile .profile--numbers {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 20px;
+	margin-top: 25px;
+}
+
+.navbar--profile .profile--numbers [class^="column"] {
+	cursor: pointer;
+}
+
+.navbar--profile .profile--numbers h4 {
+	font-size: 18px;
+}
+
+.navbar--menu {
+	margin-top: 25px;
+}
+
+.navbar--menu-item {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 15px 0;
+	width: 100%;
+}
+
+.navbar--menu-item:last-child {
+	margin-top: 25px;
+	padding-bottom: 0;
+}
+
+.navbar--menu-item-name {
+	display: flex;
+	align-items: center;
+	color: var(--secondary-font-color);
+}
+
+.navbar--menu-item-name span {
+	font-size: 18px;
+	font-weight: 700;
+	margin-left: 30px;
+}
+
+.navbar--menu-item-name svg {
+	width: 20px;
+	fill: var(--secondary-font-color);
+}
+
+.navbar--menu-item-numbers {
+	font-weight: 700;
+	color: var(--secondary-font-color);
+}
+
+.navbar--menu-item.active .navbar--menu-item-name,
+.navbar--menu-item.active .navbar--menu-item-numbers {
+	color: var(--primary-font-color);
+}
+
+.navbar--menu-item.active .navbar--menu-item-name svg {
+	fill: var(--primary-font-color);
+}
+
+/*
+ *
+ * HEADER
+ *
+ */
+header {
+	display: none;
+	position: fixed;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 69px;
+	z-index: 1;
+}
+
+header.scrolled {
+	border-bottom: 1px solid var(--secondary-background-color);
+	transition: border-width .25s;
+}
+
+header svg {
+	height: 55px;
+	fill: var(--primary-font-color);
+}
+
+@media(max-width: 1100px) {
+	/*
+	 *
+	 * NAVBAR
+	 *
+	 */
+	nav .container {
+		width: 275px;
+		transform: translateX(-275px);	
+		transition: transform .25s;
+	}
+
+	nav.toggled .container {
+		transform: none;
+	}
+
+	.navbar--mobile-button {
+		display: flex;
+	}
+
+	.navbar--logo {
+		display: none;
+	}
+
+	.navbar--profile {
+		margin-top: 55px;
+	}
+
+	/*
+	 *
+	 * HEADER
+	 *
+	 */
+	header {
+		display: flex;
+	}
+}

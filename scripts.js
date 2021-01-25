@@ -137,5 +137,10 @@ pageContent.addEventListener("click", () => {
  * DETECT SWIPING
  *
  */
-document.addEventListener("touchstart", handleTouchStart);
-document.addEventListener("touchmove", handleTouchMove);
+const swipeableElements = document.querySelectorAll(
+  "nav,header,section:not(.stories)"
+);
+[...swipeableElements].map((swipeableElement) => {
+  swipeableElement.addEventListener("touchstart", handleTouchStart);
+  swipeableElement.addEventListener("touchmove", handleTouchMove);
+});

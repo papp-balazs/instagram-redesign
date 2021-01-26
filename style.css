@@ -71,6 +71,7 @@ nav .container {
 
 .navbar--logo {
   display: flex;
+  cursor: pointer;
 }
 
 .navbar--logo #logo__icon {
@@ -204,6 +205,7 @@ header {
   align-items: center;
   width: 100%;
   height: 69px;
+  background-color: var(--primary-background-color);
   z-index: 1;
 }
 
@@ -215,6 +217,7 @@ header.scrolled {
 header svg {
   height: 55px;
   fill: var(--primary-font-color);
+  cursor: pointer;
 }
 
 /*
@@ -224,7 +227,7 @@ header svg {
  */
 .stories {
   display: flex;
-  padding: 25px;
+  padding: 25px 0 0 25px;
   overflow: scroll;
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -276,6 +279,80 @@ header svg {
   font-size: 35px;
   background-color: rgba(0, 0, 0, 0.7);
   border-radius: 35px;
+}
+
+/*
+ *
+ * POST FEED
+ *
+ */
+.feed {
+  padding: 0 25px 25px;
+}
+
+.feed h1 {
+  font-size: 35px;
+  font-weight: 700;
+  margin: 25px 0;
+}
+
+.posts-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px 25px;
+}
+
+.posts-wrapper .post--image {
+  width: 100%;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.posts-wrapper .post-bottom {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0;
+}
+
+.posts-wrapper .post-bottom--column {
+  display: flex;
+  align-items: center;
+  grid-gap: 10px;
+}
+
+.posts-wrapper .post-bottom .profile-picture {
+  padding: 2px;
+  background-color: var(--primary-background-color);
+  border-radius: 22px;
+}
+
+.posts-wrapper .post-bottom .profile-picture.has-story {
+  background: linear-gradient(45deg, #ffc107, #f44336, #9c27b0);
+  cursor: pointer;
+}
+
+.posts-wrapper .post-bottom .profile-picture img {
+  display: block;
+  width: 40px;
+  border: 2px solid var(--primary-background-color);
+  border-radius: 20px;
+}
+
+.posts-wrapper .post-bottom .username,
+.posts-wrapper .post-bottom span {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--secondary-font-color);
+}
+
+.posts-wrapper .post-bottom--column a {
+  display: flex;
+}
+
+.posts-wrapper .post-bottom--column svg {
+  width: 15px;
+  fill: var(--secondary-font-color);
+  margin-right: 5px;
 }
 
 @media (max-width: 1100px) {
@@ -348,5 +425,35 @@ header svg {
     width: 54px;
     height: 54px;
     font-size: 25px;
+  }
+
+  /*
+   *
+   * POST FEED
+   *
+   */
+  .feed {
+    padding: 25px 0 0;
+  }
+
+  .feed h1 {
+    display: none;
+  }
+
+  .posts-wrapper {
+    display: inline;
+  }
+
+  .posts-wrapper .post--image {
+    border-radius: 0;
+  }
+
+  .posts-wrapper .post-bottom {
+    padding: 10px;
+    margin-bottom: 25px;
+  }
+
+  .posts-wrapper .post:last-child .post-bottom {
+    margin-bottom: 0;
   }
 }

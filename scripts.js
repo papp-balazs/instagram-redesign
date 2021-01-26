@@ -144,3 +144,35 @@ const swipeableElements = document.querySelectorAll(
   swipeableElement.addEventListener("touchstart", handleTouchStart);
   swipeableElement.addEventListener("touchmove", handleTouchMove);
 });
+
+const scrollToTop = () => {
+  if (document.scrollingElement.scrollTop === 0) return;
+
+  const cosParameter = document.scrollingElement.scrollTop / 2;
+  let scrollCount = 0;
+  let oldTimestamp = null;
+
+  const step = (newTimestamp) => {
+    if (oldTimestamp !== null) {
+      scrollCount += (Math.PI * (newTimestamp - oldTimestamp)) / 500;
+
+      if (scrollCount >= Math.PI) {
+        return (document.scrollingElement.scrollTop = 0);
+      }
+
+      document.scrollingElement.scrollTop =
+        cosParameter + cosParameter * Math.cos(scrollCount);
+    }
+
+    oldTimestamp = newTimestamp;
+    window.requestAnimationFrame(step);
+  };
+
+  window.requestAnimationFrame(step);
+};
+
+const navbarLogo = document.querySelector(".navbar--logo");
+const headerLogo = document.querySelector("header svg");
+
+navbarLogo.addEventListener("click", scrollToTop);
+headerLogo.addEventListener("click", scrollToTop);

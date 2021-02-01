@@ -107,7 +107,7 @@ nav .container {
   display: block;
   width: 130px;
   height: 130px;
-  background-image: url("/images/profile-pic.jpg");
+  background-image: url("images/profile-pic.jpg");
   background-position: center 10%;
   background-size: cover;
   border: 5px solid var(--secondary-background-color);
